@@ -1,0 +1,242 @@
+:root{
+    --facebook-color: #3b5998;
+    --instagram-color: linear-gradient(to right, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+    --twitter-color: #00acee;
+    --box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    --light-blue: #2193b0;
+    --bg-gradient: linear-gradient(to right, #6dd5ed, #2193b0);
+    --bg-gradient-reverse: linear-gradient(to right, #2193b0, #6dd5ed);
+    --webkit-bg-gradient: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    --pink: #ec008c;
+    --btn-gradient: linear-gradient(to right, #fc6767, #ec008c);
+    --webkit-btn-gradient: -webkit-linear-gradient(to right, #fc6767, #ec008c);
+    --font-1: 'Balsamiq Sans', cursive;
+    --font-2: 'Bubblegum Sans', cursive;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    background: var(--light-blue);
+    background: var(--webkit-bg-gradient);
+    background:  var(--bg-gradient);
+    font-family: var(--font-4);
+
+}
+
+.full-body{
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 90%;
+    box-shadow: var(--box-shadow);
+    background: #fff;
+    transition: all .5s ease;
+}
+
+.left-section{
+    padding: 30px;
+}
+
+.left-section img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.details-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile{
+    margin: 5px 0;
+    font-family: var(--font-1)
+}
+
+.profile-item{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 10px 0;
+    grid-gap: 20px;
+}
+
+.profile-item .item-title::after{
+    content: ':';
+}
+
+.vote-counts{
+    margin: 5px;
+    font-family: var(--font-2);
+}
+
+.count{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 10px;
+    grid-gap: 20px;
+}
+
+.count-title{
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.facebook .count-title{
+    color: var(--facebook-color);
+}
+
+.twitter .count-title{
+    color: var(--twitter-color);
+}
+
+.instagram .count-title{
+    background: var(--instagram-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.facebook .badge{
+    background: var(--facebook-color);
+}
+
+.twitter .badge{
+    background: var(--twitter-color);
+}
+
+.instagram .badge{
+    background: var(--instagram-color);
+}
+
+.count .badge{
+    padding: 5px;
+}
+
+.tally-btn-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.tally-btn{
+    width: 90%;
+    background-image: var(--bg-gradient);
+    border: none;
+    font-family: var(--font-1);
+    background-size: 300% 100%;
+
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.tally-btn:hover{
+    background-position: 100% 0;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.tally-btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.right-section{
+    display: none;
+    padding: 30px;
+    background: var(--bg-gradient-reverse);
+    color: #fff;
+}
+
+.right-section h5{
+    text-align: center;
+    text-transform: capitalize;
+    font-family: var(--font-1);
+}
+
+.right-section form .form-group{
+    margin: 10px 0;
+}
+
+.right-section form label{
+    font-weight: bold;
+    font-family: var(--font-1);
+}
+
+.right-section form input, .right-section form select, .right-section form option, .right-section form input::placeholder{
+    font-family: var(--font-1);
+}
+
+.tally-btn-area .vote-btn{
+    width: 100%;
+    font-family: var(--font-1);
+    border: none;
+    margin-top: 10px;
+    background-size: 300% 100%;
+    background-image: var(--pink);
+    background-image: var(--webkit-btn-gradient);
+    background-image: var(--btn-gradient);
+
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+
+    
+
+}
+
+.tally-btn-area .vote-btn:hover{
+    background-position: 100% 0;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.vote-btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.close-btn{
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+@media(min-width: 900px){
+    body{
+        height: 100vh;
+        padding: 0;
+    }
+
+    .full-body{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 400px;
+    }
+
+    .right-section{
+        display: none;
+    }
+}
