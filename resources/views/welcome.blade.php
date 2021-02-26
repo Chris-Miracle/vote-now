@@ -72,31 +72,38 @@
             <form action="">
                 <div class="form-group">
                     <label for="">How many tally votes?</label>
-                    <select class="form-control" name="" id="" placeholder="how many tally votes">
+                    <select class="form-control" name="tally" id="" placeholder="how many tally votes">
                         <option value=""></option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
+                        <option value="10">25</option>
+                        <option value="20">50</option>
+                        <option value="30">75</option>
                         <option value="100">100</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="">Your email</label>
-                    <input type="text" class="form-control" id="email" name="sender" value="">
+                    <input type="text" class="form-control" name="email" id="email"  value="">
                 </div>
 
                 <div class="form-group">
                     <label for="contestId">Contest</label>
-                    <input type="text" class="form-control" id="contestid" name="type" value="">
+                    <input type="text" class="form-control" name="contest" id="contestid" value="">
                 </div>
 
                 <div class="form-group">
                     <label for="smsCode">Contestant Code</label>
-                    <input type="text" class="form-control" name="smsCode" id="contestantid">
+                    <input type="text" class="form-control" name="contestCode" id="contestantid">
                 </div>
 
                 <div class="form-group">
+                    <p>Hey there, you should know for each tally vote you will be charged <del>N</del>50. Thank you for patronizing our platform. Cheers.</p>
+                    <p>By Clicking vote, you have agreed to user licence terms and conditions.</p>
+                </div>
+
+                <input type="hidden" name="refcode" id="refcode">
+                <input type="hidden" name="votes" id="votes" value="">
+                {{-- <div class="form-group">
                     <label for="refcode">Ref Code</label>
                     <input type="text" class="form-control" name="refcode" id="refcode">
                 </div>
@@ -104,9 +111,9 @@
                 <div class="form-group">
                     <label for="votes">Votes</label>
                     <input type="text" class="form-control" name="votes" id="votes" value="">
-                </div>
+                </div> --}}
 
-                <div class="tally-btn-area">
+                <div class="tally-btn-area" style="margin-top: 28px;">
                     <button class="btn btn-primary vote-btn">Vote</button>
                 </div>
             </form>
