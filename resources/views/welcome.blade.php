@@ -9,11 +9,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Bubblegum+Sans&family=Permanent+Marker&family=Potta+One&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+                $("#myToast").toast('show');
+        });
+    </script>
 </head>
 <body>
+    @if(session()->has('success'))
+        <div class="toast" id="myToast" data-delay="10000" style="position: absolute; top: 0; right: 0;">
+            <div class="toast-header">
+                🚀
+                <strong class="mr-auto">Thank you</strong>
+                <small>Just Now</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                {{ session()->get('success') }}
+            </div>
+        </div>
+    @endif
     <div class="full-body">
         <div class="left-section">
             <img src="{{asset('assets/img/g2.jpg')}}" alt="">
@@ -58,7 +79,7 @@
 
                     <div class="count">
                         <span class="count-title"><i class="fa fa-th"></i> Tally</span>
-                        <span class="badge badge-primary">43</span>
+                        <span class="badge badge-primary">{{$tally}}</span>
                     </div>
                 </div>
                 <div class="tally-btn-area">
@@ -126,13 +147,9 @@
         </div>
     </div>
 
-
-
-
-    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{asset('js/custom.js')}}"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script>

@@ -15,7 +15,9 @@ class VoteController extends Controller
      */
     public function index()
     {
-        //
+        $tally = Vote::select('tally')->sum('tally');
+        // $tally_votes = $tally / 3;
+        return view('welcome', compact('tally'));
     }
 
     /**
@@ -53,7 +55,7 @@ class VoteController extends Controller
 
         $data->save();
 
-        return redirect('/')->withToastSuccess('Your Tally vote has been added to the contestant tallies!');
+        return redirect('/')->with('success','Your Tally vote has been added to the contestant tallies!');
     }
 
     /**
