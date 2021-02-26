@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('purchase-tally', 'App\Http\Controllers\VoteController@store')->name('purchase-tally');

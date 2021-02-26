@@ -69,31 +69,37 @@
         <div class="right-section">
             <h5>Purchase tally for John Doe</h5>
             <div class="close-btn"><i class="fa fa-close"></i></div>
-            <form action="" id="paynow">
+            <form action="{{route('purchase-tally')}}" method="POST" name="myform" id="paynow">
+                @csrf
+                @method('post')
                 <div class="form-group">
                     <label for="">How many tally votes?</label>
-                    <select class="form-control" name="tally" id="tally" placeholder="how many tally votes">
+                    <select class="form-control" name="tally" id="tally" placeholder="how many tally votes" required>
                         <option value=""></option>
                         <option value="25">25</option>
                         <option value="50">50</option>
                         <option value="75">75</option>
                         <option value="100">100</option>
                     </select>
+                    <div id="tally_error" style="color: red"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="">Your email</label>
-                    <input type="text" class="form-control" name="email" id="email"  value="">
+                    <input type="text" class="form-control" name="email" id="email"  value="" required>
+                    <div id="email_error" style="color: red"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="contestId">Contest</label>
-                    <input type="text" class="form-control" name="contest" id="contestid" value="">
+                    <input type="text" class="form-control" name="contest" id="contestid" value="" required>
+                    <div id="contest_error" style="color: red"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="smsCode">Contestant Code</label>
-                    <input type="text" class="form-control" name="contestCode" id="contestantid">
+                    <input type="text" class="form-control" name="contestCode" id="contestantid" required>
+                    <div id="contestCode_error" style="color: red"></div>
                 </div>
 
                 <div class="form-group">
@@ -123,6 +129,7 @@
 
 
 
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -139,6 +146,22 @@
         }
 
         function paystackPay(){
+            if( document.myform.tally.value == "" ) {
+            document.getElementById("tally_error").innerHTML = 'Tally is required, Kindly Provide.';
+            return false;
+            }
+            if( document.myform.email.value == "" ) {
+            document.getElementById("email_error").innerHTML = 'Email is required, Kindly Provide.';
+            return false;
+            }
+            if( document.myform.contest.value == "" ) {
+            document.getElementById("contest_error").innerHTML = 'Contest is required, Kindly Provide.';
+            return false;
+            }
+            if( document.myform.contestCode.value == "" ) {
+            document.getElementById("contestCode_error").innerHTML = 'Contest Code is required, Kindly Provide.';
+            return false;
+            }
             var handler = PaystackPop.setup({
                 key: 'pk_test_8b5c0aeeac875fb820de39839ad121a93a82a055',
                 email: document.getElementById("email").value,

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vote;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VoteController extends Controller
 {
@@ -34,7 +36,24 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = request()->validate([
+            'tally' => 'required',
+            'email' => 'required|email',
+            'contestCode' => 'required',
+            'contest' => 'required',
+        ]);
+
+        $data = new Vote;
+        $data->tally = $request->input('tally');
+        $data->email = $request->input('email');
+        $data->contest = $request->input('contest');
+        $data->contestCode = $request->input('contestCode');
+        $data->ref = $request->input('ref');
+        $data->amount = $request->input('amount');
+
+        $data->save();
+
+        return redirect('/')->withToastSuccess('Your Tally vote has been added to the contestant tallies!');
     }
 
     /**
