@@ -15,7 +15,7 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $tally = Vote::select('tally')->sum('tally');
+        $tally = Vote::select('tally')->SUM('tally');
         // $tally_votes = $tally / 3;
         return view('welcome', compact('tally'));
     }
