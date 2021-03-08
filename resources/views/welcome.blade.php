@@ -79,7 +79,7 @@
 
                     <div class="count">
                         <span class="count-title"><i class="fa fa-th"></i> Tally</span>
-                        <span class="badge badge-primary">{{$tally}}</span>
+                        <span class="badge badge-primary">{{$sum}}</span>
                     </div>
                 </div>
                 <div class="tally-btn-area">
